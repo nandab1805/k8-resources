@@ -10,4 +10,4 @@ spec:
           - containerPort: 80
       - name: almalinux
         image: almalinux:8
-        command: ["/bin/sh", "-c", "sleep 300"]  # Fix for sleep command
+        command: ["/bin/sh", "-c", "while true; do sleep 300; done"]

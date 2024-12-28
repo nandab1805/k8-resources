@@ -1,4 +1,4 @@
-apiversion: v1
+apiVersion: v1
 kind: Pod
 metadata:
   name: config-pod
@@ -20,7 +20,7 @@ spec:
               name: devops-config
               key: trainer
 
-# apiversion: v1
+# apiVersion: v1
 # kind: Pod
 # metadata:
 #   name: hello-pod

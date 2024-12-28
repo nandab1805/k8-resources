@@ -1,5 +1,5 @@
-apiVersion : v1
-kind : Pod
+apiVersion: v1
+kind: Pod
 metadata:
   name: envar-demo
   labels:
@@ -15,4 +15,3 @@ spec:
           value: "This is the second environment variable"
         - name: ENV_VAR3
           value: "This is the third environment variable"
-        

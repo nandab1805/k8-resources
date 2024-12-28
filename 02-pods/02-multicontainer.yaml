@@ -1,13 +1,14 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: multi-pod
+  name: multi-container
 spec:
+  # list of containers
   containers:
-    - name: hello-pod
-      image: nginx
-      ports:
-        - containerPort: 80
-    - name: almalinux-container
-      image: almalinux:8
-      command: ["/bin/sh", "-c", "while true; do sleep 300; done"]
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 80
+  - name: almalinux
+    image: almalinux:8
+    command: ["sleep", "300"]

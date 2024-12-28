@@ -1,0 +1,19 @@
+apiversion : v1
+kind : Pod
+metadata:
+  name: hello-pod
+  labels:
+    course: DevOps
+    trainer: sivakumar
+  annotations:
+    com.roboshop.training.duration: "120HRS"
+    jenkins.url: "http://jenkins.roboshop.com:8080"
+spec:
+  containers:
+    - name: hello-pod
+      image: nginx
+      ports:
+        - containerPort: 80
+    - name: almalinux
+      image: almalinux:8
+      command: ["sleep 300"]

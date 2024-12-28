@@ -1,0 +1,22 @@
+apiversion: v1
+kind: Pod
+metadata:
+  name: hello-nginx
+  labels:
+    app: nginx
+    demo: service
+spec:
+  containers:
+    - name: hello-pod
+      image: nginx
+      ports:
+        -containerPort: 80
+---
+apiversion: v1
+kind: Service
+metadata:
+  name: nginx-service
+  spec:
+    selector:
+      app: nginx
+      demo: service

@@ -1,0 +1,7 @@
+apiversion: v1
+kind: ConfigMap
+metadata:
+  name: devops-config
+data:
+  course: "DevOps"
+  trainer: "Siva"

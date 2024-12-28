@@ -1,0 +1,35 @@
+apiversion: v1
+kind: Pod
+metadata:
+  name: config-pod
+spec:
+  containers:
+    - name: hello-pod
+      image: nginx
+      ports:
+        - containerPort: 80
+      env:
+        - name: course
+          valueFrom:
+            configMapKeyRef:
+              name: devops-config
+              key: course
+        - name: trainer
+          valueFrom:
+            configMapKeyRef:
+              name: devops-config
+              key: trainer
+
+# apiversion: v1
+# kind: Pod
+# metadata:
+#   name: hello-pod
+# spec:
+#   containers:
+#     - name: hello-pod
+#       image: nginx
+#       ports:
+#         -containerPort: 80
+#       envFrom:
+#         - configMapRef:
+#             name: devops-config

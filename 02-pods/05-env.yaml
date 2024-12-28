@@ -1,0 +1,18 @@
+apiversion : v1
+kind : Pod
+metadata:
+  name: envar-demo
+  labels:
+  purpose: demonstrate-environment-variables
+spec:
+  containers:
+    - name: envar-demo-container
+      image: nginx
+      env:
+        - name: ENV_VAR1
+          value: "This is the first environment variable"
+        - name: ENV_VAR2
+          value: "This is the second environment variable"
+        - name: ENV_VAR3
+          value: "This is the third environment variable"
+        

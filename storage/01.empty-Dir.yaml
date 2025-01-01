@@ -20,7 +20,7 @@ data:
           var.paths: ["/var/log/nginx/error.log*"]
     output:
       elasticsearch:
-        hosts: ["elasticsearch:9200"]
+        hosts: ["http://elasticsearch:9200"] # Update with your ES endpoint
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -57,13 +57,19 @@ spec:
         - name: filebeat-config
           mountPath: /usr/share/filebeat/filebeat.yml
           subPath: filebeat.yml
-
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "200m"
       volumes:
       - name: nginx-logs
         emptyDir: {}
       - name: filebeat-config
         configMap:
-            name: filebeat-config
-            items:
-              - key: filebeat.yml
-                path: filebeat.yml
+          name: filebeat-config
+          items:
+          - key: filebeat.yml
+            path: filebeat.yml

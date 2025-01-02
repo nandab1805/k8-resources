@@ -9,3 +9,36 @@ spec:
   resources:
     requests:
       storage: 4Gi
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app
+  labels:
+    demo: ebs-dynamic
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    volumeMounts:
+    - name: nginx-data
+      mountPath: /usr/share/nginx/html
+  nodeSelector:
+    zone: 1b
+  volumes:
+  - name: nginx-data
+    persistentVolumeClaim:
+      claimName: ebs-dynamic
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ebs-dynamic
+spec:
+  type: LoadBalancer
+  selector:
+    demo: ebs-static
+  ports:
+    - protocol: TCP
+      port: 80    # Service port
+      targetPort: 80  # Container port

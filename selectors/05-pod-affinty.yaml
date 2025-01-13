@@ -2,6 +2,9 @@ apiVersion : v1
 kind : Pod
 metadata:
   name: with-pod-affinity
+  labels:
+    name: with-pod-affinity
+
 spec:
   containers:
   - name: with-pod-affinity

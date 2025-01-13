@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: pod
 metadata:
-  name: taint-toleration
+  name: taint-pod
   Namespace: roboshop
 spec:
   containers:

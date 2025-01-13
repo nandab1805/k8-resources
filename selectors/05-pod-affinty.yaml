@@ -26,7 +26,7 @@ spec:
           - key: name
             operator: In
             values:
-            - with-pod-affinity-1
+            - with-pod-affinity
         topologyKey: topology.kubernetes.io/zone
   containers:
   - name: with-pod-affinity
